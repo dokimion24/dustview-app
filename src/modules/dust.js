@@ -13,18 +13,23 @@ export const getParameters = {
   ver: '1.0',
 }
 
-export const fetchData = () => async (dispatch) => {
-  // const res = await axiosInstance.get('/getCtprvnRltmMesureDnsty')
-  dispatch({ type: FETCH_DATA })
-  try {
-    const res = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
-      params: getParameters,
-    })
-    dispatch({ type: FETCH_DATA_SUCCESS, payload: { data: res.data } })
-  } catch (err) {
-    dispatch({ type: FETCH_DATA_ERROR, error: err })
+export const fetchData =
+  (sidoName = '서울') =>
+  async (dispatch) => {
+    console.log('sidoName', sidoName)
+    getParameters.sidoName = sidoName
+
+    dispatch({ type: FETCH_DATA })
+    try {
+      // const res = await axiosInstance.get('/getCtprvnRltmMesureDnsty')
+      const res = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', {
+        params: getParameters,
+      })
+      dispatch({ type: FETCH_DATA_SUCCESS, payload: { data: res.data } })
+    } catch (err) {
+      dispatch({ type: FETCH_DATA_ERROR, error: err })
+    }
   }
-}
 
 const initialState = {
   loading: false,
