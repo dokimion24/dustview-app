@@ -13,11 +13,10 @@ export const getParameters = {
   ver: '1.0',
 }
 
-export const fetchData =
-  (sidoName = '서울') =>
+export const fetchCityData =
+  (city = '서울') =>
   async (dispatch) => {
-    console.log('sidoName', sidoName)
-    getParameters.sidoName = sidoName
+    getParameters.sidoName = city
 
     dispatch({ type: FETCH_DATA })
     try {
