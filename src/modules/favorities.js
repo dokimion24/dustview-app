@@ -16,7 +16,7 @@ export const toggleFavReducer = (state = initialState, action) => {
     case ADD_FAV:
       return [...state, action.payload]
     case DELETE_FAV:
-      return state.filter((element) => element.id !== action.payload.id)
+      return state.filter((element) => element.stationName !== action.payload.stationName)
     default:
       return state
   }
