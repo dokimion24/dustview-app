@@ -1,13 +1,15 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import store from '@/store'
 
 import GlobalStyle from './styles/Global'
 import styled from '@emotion/styled'
 import MyCity from '@/pages/MyCity/MyCity'
 import Cities from '@/pages/Cities/Cities'
 import Favorites from '@/pages/Favorites/Favorites'
+
+import { store, persistor } from '@/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const Container = styled.div`
   border: 1px solid #000;
@@ -18,14 +20,16 @@ const Container = styled.div`
 const App = () => {
   return (
     <Provider store={store}>
-      <GlobalStyle />
-      <Container>
-        <Routes>
-          <Route path="/" element={<MyCity />} />
-          <Route path="/cities" element={<Cities />} />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-      </Container>
+      <PersistGate loading={<>로딩 시 표시할 jsx</>} persistor={persistor}>
+        <GlobalStyle />
+        <Container>
+          <Routes>
+            <Route path="/" element={<MyCity />} />
+            <Route path="/cities" element={<Cities />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </Container>
+      </PersistGate>
     </Provider>
   )
 }
