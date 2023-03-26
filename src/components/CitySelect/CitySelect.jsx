@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchCityData } from '@/modules/dust'
-import { useDispatch } from 'react-redux'
+import { selectCity } from '@/modules/city'
 
 const CitySelect = () => {
-  const [city, setCity] = useState('서울')
-  const dispatch = useDispatch()
+  const fetchDataDispatch = useDispatch()
+  const selectCityDispatch = useDispatch()
 
-  console.log('city', city)
+  const city = useSelector((state) => state.selectCityReducer)
+  console.log('cityobj', city)
 
   const HandleSelectCity = (e) => {
-    setCity(e.target.value)
+    selectCityDispatch(selectCity(e.target.value))
   }
 
   useEffect(() => {
-    dispatch(fetchCityData(city))
+    fetchDataDispatch(fetchCityData(city.city))
   }, [city])
 
   return (
