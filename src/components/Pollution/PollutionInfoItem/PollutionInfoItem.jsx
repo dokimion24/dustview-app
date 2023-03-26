@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { formatGrade } from '@/utils/formatGrade'
 
 import { AiOutlineStar } from 'react-icons/ai'
@@ -6,13 +6,28 @@ import * as S from '@/components/Pollution/PollutionInfoItem/PollutionInfoItem.s
 import { toggleFavReducer, addFav, deleteFav } from '@/modules/favorities'
 
 import { useDispatch } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 const PollutionItem = ({ pollutionInfo }) => {
+  const location = useLocation()
+
+  const [isClicked, setIsClicked] = useState(false)
   const dispatch = useDispatch()
 
-  const HandleToggleFav = () => {
-    dispatch(addFav(pollutionInfo))
+  const handleSet = () => {
+    if (location.pathname === '/favorites') {
+      setIsClicked(true)
+    }
   }
+
+  const HandleToggleFav = () => {
+    !isClicked ? dispatch(addFav(pollutionInfo)) : dispatch(deleteFav(pollutionInfo))
+    setIsClicked(!isClicked)
+  }
+
+  useEffect(() => {
+    handleSet()
+  }, [])
 
   return (
     <>
@@ -27,7 +42,7 @@ const PollutionItem = ({ pollutionInfo }) => {
       </div>
 
       <S.Icon onClick={HandleToggleFav}>
-        <AiOutlineStar color="red" />
+        {isClicked ? <AiOutlineStar color="red" /> : <AiOutlineStar color="black" />}
       </S.Icon>
     </>
   )
