@@ -12,15 +12,17 @@ import { store, persistor } from '@/store'
 import { PersistGate } from 'redux-persist/integration/react'
 
 const Container = styled.div`
-  border: 1px solid #000;
-  width: 700px;
-  height: 70vh;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  width: 600px;
+  height: 80vh;
 `
 
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={<>로딩 시 표시할 jsx</>} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
         <GlobalStyle />
         <Container>
           <Routes>
