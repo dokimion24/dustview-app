@@ -76,13 +76,27 @@ const reset = css`
   }
   button {
     cursor: pointer;
+    background-color: #fff;
+  }
+  select {
+    border: none;
   }
 `
 
 const style = css`
+  :root {
+    --border-radius: 12px;
+    --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 1px;
+
+    --color-good: #1977d2;
+    --color-common: #388e3d;
+    --color-bad: #f06b02;
+    --color-verybad: #c72827;
+    --color-unknown: #b2b2b2;
+  }
+
   body {
     height: 100vh;
-    background: #e9ecef;
     display: flex;
     justify-content: center;
     align-items: center;
