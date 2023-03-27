@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCityData } from '@/modules/dust'
 import { selectCity } from '@/modules/city'
 
+import { CiLocationOn } from 'react-icons/ci'
+
 const CitySelect = () => {
   const fetchDataDispatch = useDispatch()
   const selectCityDispatch = useDispatch()
@@ -20,6 +22,8 @@ const CitySelect = () => {
 
   return (
     <div>
+      <CiLocationOn />
+
       <select name="cities" onChange={HandleSelectCity}>
         <option value="서울">서울</option>
         <option value="부산">부산</option>
