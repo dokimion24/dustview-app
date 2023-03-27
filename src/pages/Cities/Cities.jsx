@@ -4,6 +4,8 @@ import Menu from '@/components/Menu/Menu'
 import CitySelect from '@/components/CitySelect/CitySelect'
 import { useSelector } from 'react-redux'
 
+import * as S from '@/styles/Common/Common.style'
+
 const Cities = () => {
   const data = useSelector((state) => state.fetchReducer.data)
 
@@ -19,7 +21,10 @@ const Cities = () => {
 
   return (
     <div>
-      <CitySelect />
+      <S.Header>
+        <CitySelect />
+      </S.Header>
+
       {pollutionInfos && <PollutionInfoList pollutionInfos={pollutionInfos} />}
       <Menu />
     </div>
