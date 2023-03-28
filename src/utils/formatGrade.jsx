@@ -22,8 +22,6 @@ export const formatGrade = (target) => {
         </>
       )
     case '3':
-      return <S.Icon>한때 나쁨</S.Icon>
-    case '4':
       return (
         <>
           <S.Icon>
@@ -32,8 +30,15 @@ export const formatGrade = (target) => {
           <div>나쁨</div>
         </>
       )
-    case '5':
-      return <S.Icon>매우 나쁨</S.Icon>
+    case '4':
+      return (
+        <>
+          <S.Icon>
+            <CiFaceFrown size="56" />
+          </S.Icon>
+          <div>매우 나쁨</div>
+        </>
+      )
     default:
       return <S.Icon>알 수 없음</S.Icon>
   }

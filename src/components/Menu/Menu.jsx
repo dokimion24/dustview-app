@@ -7,18 +7,18 @@ import { CiLocationOn, CiViewList, CiStar } from 'react-icons/ci'
 const Menu = () => {
   return (
     <S.Container>
-      <S.Button>
+      <Link to="/">
         <CiLocationOn size={28} />
-        <Link to="/">내 지역</Link>
-      </S.Button>
-      <S.Button>
+        <span>내 지역</span>
+      </Link>
+      <Link to="/cities">
         <CiViewList size={28} />
-        <Link to="/cities">전체 지역</Link>
-      </S.Button>
-      <S.Button>
+        <span>전체 지역</span>
+      </Link>
+      <Link to="/favorites">
         <CiStar size={28} />
-        <Link to="/favorites">즐겨찾기</Link>
-      </S.Button>
+        <span>즐겨찾기</span>
+      </Link>
     </S.Container>
   )
 }
