@@ -10,14 +10,14 @@ const MyCity = () => {
   const [station, setStation] = useState('중구')
 
   return (
-    <div>
+    <S.Container>
       <S.Header>
         <CitySelect />
         <StationSelect setStation={setStation} />
       </S.Header>
-      {station && <PollutionItem pollutionInfo={station} />}
+      <S.Content>{station && <PollutionItem pollutionInfo={station} />}</S.Content>
       <Menu />
-    </div>
+    </S.Container>
   )
 }
 

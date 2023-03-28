@@ -20,14 +20,15 @@ const Cities = () => {
   // console.log('Cities', data.response.body.items)
 
   return (
-    <div>
+    <S.Container>
       <S.Header>
         <CitySelect />
       </S.Header>
-
-      {pollutionInfos && <PollutionInfoList pollutionInfos={pollutionInfos} />}
+      <S.Content>
+        {pollutionInfos && <PollutionInfoList pollutionInfos={pollutionInfos} />}
+      </S.Content>
       <Menu />
-    </div>
+    </S.Container>
   )
 }
 
