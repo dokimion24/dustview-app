@@ -22,7 +22,7 @@ export const fetchCityData =
     try {
       // const res = await axiosInstance.get('/getCtprvnRltmMesureDnsty')
       const res = await axios.get(
-        `${import.meta.env.VITE_DOMAIN}/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`,
+        `${import.meta.env.VITE_DOMAIN}/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`,
         {
           params: getParameters,
         },
