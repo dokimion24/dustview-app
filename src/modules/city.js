@@ -4,7 +4,7 @@ export function selectCity(city, station = null) {
   return { type: SELECT_CITY, payload: { city, station } }
 }
 
-const initialState = '서울'
+const initialState = { city: '서울', station: '한강대로' }
 
 export const selectCityReducer = (state = initialState, action) => {
   switch (action.type) {
