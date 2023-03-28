@@ -1,14 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import PollutionInfoItem from '../PollutionInfoItem/PollutionInfoItem'
+import PollutionInfoItem from '@/components/Pollution/PollutionInfoItem/PollutionInfoItem'
+import * as S from '@/components/Pollution/PollutionInfoList/PollutionInfoList.style'
 
 const PollutionInfoList = ({ pollutionInfos }) => {
   return (
-    <div>
+    <>
       {pollutionInfos.map((pollutionInfo) => (
         <PollutionInfoItem key={pollutionInfo.stationName} pollutionInfo={pollutionInfo} />
       ))}
-    </div>
+    </>
   )
 }
 
