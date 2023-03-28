@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://dustview-inbka70jd-dokimion0.vercel.app/apis.data.go.kr',
+        target: 'https://apis.data.go.kr',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
         secure: false,
