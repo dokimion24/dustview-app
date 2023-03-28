@@ -7,15 +7,15 @@ import PollutionItem from '@/components/Pollution/PollutionInfoItem/PollutionInf
 import * as S from '@/styles/Common/Common.style'
 
 const MyCity = () => {
-  const [station, setStation] = useState('중구')
+  const [pollutionInfo, setPollutionInfo] = useState('')
 
   return (
     <S.Container>
       <S.Header>
         <CitySelect />
-        <StationSelect setStation={setStation} />
+        <StationSelect setPollutionInfo={setPollutionInfo} />
       </S.Header>
-      <S.Content>{station && <PollutionItem pollutionInfo={station} />}</S.Content>
+      <S.Content>{pollutionInfo && <PollutionItem pollutionInfo={pollutionInfo} />}</S.Content>
       <Menu />
     </S.Container>
   )
