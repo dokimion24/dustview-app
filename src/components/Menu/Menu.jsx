@@ -1,19 +1,25 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+
+import * as S from './Menu.style'
+import { CiLocationOn, CiViewList, CiStar } from 'react-icons/ci'
 
 const Menu = () => {
   return (
-    <div>
-      <button>
-        <Link to="/">내 지역보기</Link>
-      </button>
-      <button>
-        <Link to="/cities">전체 시도보기</Link>
-      </button>
-      <button>
+    <S.Container>
+      <S.Button>
+        <CiLocationOn size={28} />
+        <Link to="/">내 지역</Link>
+      </S.Button>
+      <S.Button>
+        <CiViewList size={28} />
+        <Link to="/cities">전체 지역</Link>
+      </S.Button>
+      <S.Button>
+        <CiStar size={28} />
         <Link to="/favorites">즐겨찾기</Link>
-      </button>
-    </div>
+      </S.Button>
+    </S.Container>
   )
 }
 
