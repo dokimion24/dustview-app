@@ -5,3 +5,16 @@ export const Header = styled.header`
   height: 60px;
   border-bottom: 1px solid #ccc;
 `
+
+export const Container = styled.div`
+  height: 100%;
+  position: relative;
+`
+export const Content = styled.div`
+  height: 80%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
