@@ -15,8 +15,9 @@ const Container = styled.div`
   padding: 20px;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
-  width: 600px;
+  min-width: 600px;
   height: 80vh;
+  min-height: 700px;
 `
 
 const App = () => {
