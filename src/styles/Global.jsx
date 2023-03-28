@@ -93,6 +93,7 @@ const style = css`
     --color-bad: #f06b02;
     --color-verybad: #c72827;
     --color-unknown: #b2b2b2;
+    --color-main: #0d2241;
   }
 
   body {
