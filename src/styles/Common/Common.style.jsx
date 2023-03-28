@@ -11,6 +11,8 @@ export const Container = styled.div`
   position: relative;
 `
 export const Content = styled.div`
+  margin-top: 10px;
+
   height: 80%;
   overflow-y: auto;
 

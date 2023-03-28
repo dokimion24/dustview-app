@@ -13,11 +13,11 @@ const getCardBackgroundColor = (background) => {
       backgroundColor = 'var(--color-common)'
       break
 
-    case '4':
+    case '3':
       backgroundColor = 'var(--color-bad)'
       break
 
-    case '5':
+    case '4':
       backgroundColor = 'var(--color-verybad)'
       break
 
@@ -33,7 +33,6 @@ const getCardBackgroundColor = (background) => {
 export const PmContainer = styled.div`
   border-radius: var(--border-radius);
   padding: 20px 10px 0 10px;
-  margin-bottom: 10px;
   color: #fff;
   ${({ background }) => getCardBackgroundColor(background)};
 `
@@ -47,12 +46,16 @@ export const Item = styled.div`
 `
 
 export const Card = styled.div`
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+
   display: flex;
-  height: 200px;
+  height: 180px;
 `
 
 export const Title = styled.div`
-  font-size: 24px;
+  font-size: 20px;
 
   & h2 {
     display: inline-block;
