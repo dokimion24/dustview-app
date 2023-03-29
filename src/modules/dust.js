@@ -21,12 +21,9 @@ export const fetchCityData =
     dispatch({ type: FETCH_DATA })
     try {
       // const res = await axiosInstance.get('/getCtprvnRltmMesureDnsty')
-      const res = await axios.get(
-        `${import.meta.env.VITE_DOMAIN}/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`,
-        {
-          params: getParameters,
-        },
-      )
+      const res = await axios.get(`/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`, {
+        params: getParameters,
+      })
       dispatch({ type: FETCH_DATA_SUCCESS, payload: { data: res.data } })
     } catch (err) {
       dispatch({ type: FETCH_DATA_ERROR, error: err })
