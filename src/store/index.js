@@ -27,15 +27,30 @@
 // export const persistor = persistStore(store)
 
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { createLogger } from 'logger'
+import { createLogger } from 'redux-logger'
+// import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+import { dustApi } from './apis/dustApi'
 import { citySlice } from './citySlice'
 
+const logger = createLogger()
+
+// const persistConfig = {
+//   key: 'root',
+//   storage: storage,
+//   whitelist: ['counter'],
+//   blacklist: [],
+// }
+
 const rootReducer = combineReducers({
+  [dustApi.reducerPath]: dustApi.reducer,
   [citySlice.name]: citySlice.reducer,
 })
 
 const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger, dustApi.middleware]),
 })
 
 export default store
