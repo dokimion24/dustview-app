@@ -8,8 +8,7 @@ import MyCity from '@/pages/MyCity/MyCity'
 import Cities from '@/pages/Cities/Cities'
 import Favorites from '@/pages/Favorites/Favorites'
 
-import { store, persistor } from '@/store'
-import { PersistGate } from 'redux-persist/integration/react'
+import store from '@/store'
 
 const Container = styled.div`
   padding: 20px;
@@ -23,16 +22,14 @@ const Container = styled.div`
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <GlobalStyle />
-        <Container>
-          <Routes>
-            <Route path="/" element={<MyCity />} />
-            <Route path="/cities" element={<Cities />} />
-            <Route path="/favorites" element={<Favorites />} />
-          </Routes>
-        </Container>
-      </PersistGate>
+      <GlobalStyle />
+      <Container>
+        <Routes>
+          <Route path="/" element={<MyCity />} />
+          <Route path="/cities" element={<Cities />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </Container>
     </Provider>
   )
 }
